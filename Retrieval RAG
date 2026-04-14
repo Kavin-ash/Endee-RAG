@@ -1,0 +1,9 @@
+def get_context(user_query):
+    query_vector = model.encode(user_query).tolist()
+    results = db.search(
+        collection="docs",
+        vector=query_vector,
+        limit=3
+    )
+    context = "\n".join([r.metadata['text'] for r in results])
+    return context
