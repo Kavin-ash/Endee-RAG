@@ -1,0 +1,9 @@
+insight-archive/
+├── data/               # Local document storage (.txt, .pdf, .md)
+├── src/
+│   ├── indexer.py      # Logic to chunk docs, embed them, and save to Endee
+│   ├── query_engine.py # Logic for semantic search and LLM synthesis
+│   └── utils.py        # Helper functions (embedding models, file parsing)
+├── main.py             # CLI or Simple UI entry point
+├── requirements.txt    # Project dependencies
+└── README.md           # Documentation (crucial for your submission)
