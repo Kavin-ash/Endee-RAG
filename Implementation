@@ -1,0 +1,12 @@
+import endee
+from sentence_transformers import SentenceTransformer
+db = endee.Client("path/to/db")
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+def ingest_document(text, doc_id):
+    vector = model.encode(text).tolist()
+    db.insert(
+        collection="docs",
+        vector=vector,
+        metadata={"text": text, "doc_id": doc_id}
+    )
